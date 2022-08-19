@@ -28,12 +28,64 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.btnStart = new System.Windows.Forms.Button();
+            this.txtValue = new System.Windows.Forms.TextBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.SuspendLayout();
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.WorkerReportsProgress = true;
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            // 
+            // btnStart
+            // 
+            this.btnStart.Location = new System.Drawing.Point(126, 100);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(94, 29);
+            this.btnStart.TabIndex = 0;
+            this.btnStart.Text = "Start";
+            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            // 
+            // txtValue
+            // 
+            this.txtValue.Location = new System.Drawing.Point(297, 100);
+            this.txtValue.Name = "txtValue";
+            this.txtValue.Size = new System.Drawing.Size(165, 27);
+            this.txtValue.TabIndex = 1;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(126, 230);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(336, 29);
+            this.progressBar1.TabIndex = 2;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(578, 341);
+            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.txtValue);
+            this.Controls.Add(this.btnStart);
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.TextBox txtValue;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
