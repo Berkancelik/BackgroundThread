@@ -24,14 +24,21 @@ namespace BackgroundThread
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            backgroundWorker1.RunWorkerAsync();
+            if (txtValue.Text != "")
+            {
+                int i = int.Parse(txtValue.Text);
+                backgroundWorker1.RunWorkerAsync(i);
+            }
+
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            for (int i = 0; i <= 1000; i++)
+            int j = int.Parse(e.Argument.ToString());
+            for (int i = 0; i <= j; i++)
             {
-                backgroundWorker1.ReportProgress(i/10);
+                backgroundWorker1.ReportProgress(i / 10);
+                System.Threading.Thread.Sleep(100);
             }
         }
 
@@ -43,6 +50,16 @@ namespace BackgroundThread
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             MessageBox.Show("Bitti");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i <= 1000; i++)
+            {
+                progressBar1.Value = i / 10;
+                System.Threading.Thread.Sleep(100);
+
+            }
         }
     }
 }

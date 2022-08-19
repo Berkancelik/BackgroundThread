@@ -32,6 +32,7 @@
             this.btnStart = new System.Windows.Forms.Button();
             this.txtValue = new System.Windows.Forms.TextBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // backgroundWorker1
@@ -43,11 +44,11 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(126, 100);
+            this.btnStart.Location = new System.Drawing.Point(126, 35);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(94, 29);
+            this.btnStart.Size = new System.Drawing.Size(124, 29);
             this.btnStart.TabIndex = 0;
-            this.btnStart.Text = "Start";
+            this.btnStart.Text = "Start Async";
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
@@ -65,11 +66,22 @@
             this.progressBar1.Size = new System.Drawing.Size(336, 29);
             this.progressBar1.TabIndex = 2;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(126, 99);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(124, 29);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Start Normal";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(578, 341);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.txtValue);
             this.Controls.Add(this.btnStart);
@@ -87,5 +99,6 @@
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.TextBox txtValue;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Button button1;
     }
 }
