@@ -37,9 +37,15 @@ namespace BackgroundThread
             int j = int.Parse(e.Argument.ToString());
             for (int i = 0; i <= j; i++)
             {
+                if (backgroundWorker1.CancellationPending)
+                {
+                    e.Cancel = true;
+                    break;
+                }
                 backgroundWorker1.ReportProgress(i / 10);
                 System.Threading.Thread.Sleep(100);
             }
+            e.Result = "Tamamlandi";
         }
 
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -49,7 +55,16 @@ namespace BackgroundThread
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            MessageBox.Show("Bitti");
+            if (e.Cancelled)
+            {
+                progressBar1.Value = 0;
+                MessageBox.Show("İptal Edildi");
+            }
+            else
+            {
+                MessageBox.Show(e.Result.ToString());
+            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -60,6 +75,12 @@ namespace BackgroundThread
                 System.Threading.Thread.Sleep(100);
 
             }
+            
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            backgroundWorker1.CancelAsync();
         }
     }
 }
